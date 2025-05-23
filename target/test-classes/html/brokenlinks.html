@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Broken Links - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .link-list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-list a {
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Broken Links Test</h1>
+    <p class="note">Some of the links below are valid, and some are intentionally broken for testing.</p>
+
+    <div class="link-list">
+      <!-- ✅ Valid -->
+      <a href="https://example.com" target="_blank" id="validLink1">Valid Link - Example.com</a>
+      <a href="https://github.com" target="_blank" id="validLink2">Valid Link - GitHub</a>
+      <a href="home.html" id="internalValid">Valid Link - Internal Page</a>
+
+      <!-- ❌ Broken -->
+      <a href="https://example.com/brokenpage" target="_blank" id="brokenLink1">Broken Link - 404 Page</a>
+      <a href="https://thispagedoesnotexist.openai" target="_blank" id="brokenLink2">Broken Link - Non-existent Domain</a>
+      <a href="invalid-url" id="brokenLink3">Broken Link - Invalid HREF</a>
+      <a href="javascript:void(0)" id="brokenLink4">Broken Link - JS Void</a>
+    </div>
+  </div>
+</body>
+</html>

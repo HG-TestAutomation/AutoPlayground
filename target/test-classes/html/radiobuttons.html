@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radio Buttons - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .radio-section {
+      margin-bottom: 30px;
+    }
+
+    .radio-option {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Radio Button Practice</h1>
+
+    <!-- Basic radio group -->
+    <section class="locator-section radio-section">
+      <h2>Choose Your Favorite Language</h2>
+      <div class="radio-option">
+        <input type="radio" id="java" name="language" value="Java" />
+        <label for="java">Java</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="python" name="language" value="Python" />
+        <label for="python">Python</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="js" name="language" value="JavaScript" />
+        <label for="js">JavaScript</label>
+      </div>
+    </section>
+
+    <!-- Radio buttons without IDs -->
+    <section class="locator-section radio-section">
+      <h2>Pick a Role (No IDs)</h2>
+      <div class="radio-option">
+        <input type="radio" name="role" value="Tester" />
+        <span>Tester</span>
+      </div>
+      <div class="radio-option">
+        <input type="radio" name="role" value="Developer" />
+        <span>Developer</span>
+      </div>
+      <div class="radio-option">
+        <input type="radio" name="role" value="Manager" />
+        <span>Manager</span>
+      </div>
+      <p class="note">Use <code>findElements(By.name("role"))</code> and loop by <code>getAttribute("value")</code></p>
+    </section>
+
+    <!-- Disabled radio button -->
+    <section class="locator-section radio-section">
+      <h2>Choose Your Plan</h2>
+      <div class="radio-option">
+        <input type="radio" name="plan" value="basic" />
+        <span>Basic</span>
+      </div>
+      <div class="radio-option">
+        <input type="radio" name="plan" value="premium" disabled />
+        <span>Premium (Unavailable)</span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar Handling - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .calendar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .date-popup {
+      position: absolute;
+      display: none;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+
+    .date-popup span {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      background-color: #f0f0f0;
+    }
+
+    .date-popup span:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Calendar Handling</h1>
+
+    <div class="calendar-container">
+
+      <!-- Native Date Picker -->
+      <section class="locator-section">
+        <h2>Native HTML Date Input</h2>
+        <label for="dob">Select Your Date of Birth:</label>
+        <input type="date" id="dob" name="dob" class="form-control" />
+      </section>
+
+      <!-- Disabled Dates -->
+      <section class="locator-section">
+        <h2>Booking Date with Restrictions</h2>
+        <label for="bookingDate">Choose a date (no weekends):</label>
+        <input type="date" id="bookingDate" name="bookingDate" class="form-control"
+          min="2024-01-01" max="2025-12-31" />
+        <p class="note">Use test automation to ensure weekends are not allowed.</p>
+      </section>
+
+      <!-- Date Range -->
+      <section class="locator-section">
+        <h2>Round Trip Date Range</h2>
+        <label for="depart">Departure Date:</label>
+        <input type="date" id="depart" class="form-control" />
+        <label for="return">Return Date:</label>
+        <input type="date" id="return" class="form-control" />
+      </section>
+
+      <!-- Custom Popup Calendar -->
+      <section class="locator-section">
+        <h2>Custom Calendar Popup</h2>
+        <input type="text" id="customDateInput" placeholder="Select a date" class="form-control" readonly />
+        <div class="date-popup" id="calendarPopup">
+          <span>2024-05-10</span>
+          <span>2024-05-11</span>
+          <span>2024-05-12</span>
+          <span>2024-05-13</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Simple popup calendar simulation
+    const input = document.getElementById("customDateInput");
+    const popup = document.getElementById("calendarPopup");
+
+    input.addEventListener("click", () => {
+      popup.style.display = popup.style.display === "block" ? "none" : "block";
+      popup.style.top = input.offsetTop + input.offsetHeight + "px";
+      popup.style.left = input.offsetLeft + "px";
+    });
+
+    popup.querySelectorAll("span").forEach(span => {
+      span.addEventListener("click", () => {
+        input.value = span.textContent;
+        popup.style.display = "none";
+      });
+    });
+
+    // Optional: Close popup when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!popup.contains(e.target) && e.target !== input) {
+        popup.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

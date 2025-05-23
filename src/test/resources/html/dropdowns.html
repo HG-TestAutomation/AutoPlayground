@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dropdowns - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      width: 200px;
+    }
+
+    .dropdown-button {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .dropdown-options {
+      display: none;
+      position: absolute;
+      width: 100%;
+      z-index: 99;
+      border: 1px solid #ccc;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-options div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .dropdown-options div:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Dropdowns</h1>
+
+    <!-- Standard Dropdown -->
+    <section class="locator-section">
+      <h2>Standard Country Dropdown</h2>
+      <label for="country">Select a country:</label>
+      <select id="country" class="form-control">
+        <option value="">--Select--</option>
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="ca">Canada</option>
+      </select>
+    </section>
+
+    <!-- Dropdown with Disabled Option -->
+    <section class="locator-section">
+      <h2>Dropdown with Disabled Option</h2>
+      <label for="role">Select a role:</label>
+      <select id="role" class="form-control">
+        <option value="">--Choose--</option>
+        <option value="admin">Admin</option>
+        <option value="qa" disabled>QA Engineer (Coming Soon)</option>
+        <option value="dev">Developer</option>
+      </select>
+      <p class="note">Try verifying if "QA Engineer" is disabled via automation.</p>
+    </section>
+
+    <!-- Multi-select Dropdown -->
+    <section class="locator-section">
+      <h2>Multi-Select Dropdown</h2>
+      <label for="skills">Select your skills:</label>
+      <select id="skills" multiple class="form-control">
+        <option value="selenium">Selenium</option>
+        <option value="playwright">Playwright</option>
+        <option value="api">API Testing</option>
+        <option value="sql">SQL</option>
+      </select>
+      <p class="note">Hold CTRL (or CMD on Mac) to select multiple options.</p>
+    </section>
+
+    <!-- Custom-Styled Dropdown (JS-based) -->
+    <section class="locator-section">
+      <h2>Custom Dropdown (Div-based)</h2>
+      <label for="framework">Select a framework:</label>
+      <div class="custom-dropdown">
+        <div class="dropdown-button" id="frameworkButton">-- Choose --</div>
+        <div class="dropdown-options" id="frameworkOptions">
+          <div data-value="selenium">Selenium</div>
+          <div data-value="playwright">Playwright</div>
+          <div data-value="cypress">Cypress</div>
+        </div>
+      </div>
+      <p id="frameworkSelection" class="note"></p>
+    </section>
+  </div>
+
+  <script>
+    // JS-based custom dropdown behavior
+    const button = document.getElementById("frameworkButton");
+    const options = document.getElementById("frameworkOptions");
+    const selection = document.getElementById("frameworkSelection");
+
+    button.addEventListener("click", () => {
+      options.style.display = options.style.display === "block" ? "none" : "block";
+    });
+
+    options.querySelectorAll("div").forEach(opt => {
+      opt.addEventListener("click", () => {
+        const value = opt.getAttribute("data-value");
+        button.textContent = opt.textContent;
+        selection.textContent = `Selected framework: ${value}`;
+        options.style.display = "none";
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!options.contains(e.target) && e.target !== button) {
+        options.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

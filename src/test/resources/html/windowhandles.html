@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Window Handles - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .window-section {
+      margin-bottom: 40px;
+    }
+
+    .btn-open {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-open:hover {
+      background-color: #388E3C;
+    }
+
+    .popup-content {
+      padding: 30px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Window & Tab Handling</h1>
+
+    <!-- New Tab -->
+    <section class="locator-section window-section">
+      <h2>Open New Tab</h2>
+      <a href="childpage.html" target="_blank" class="btn-open">Open New Tab</a>
+      <p>This link opens <strong>childpage.html</strong> in a new browser tab.</p>
+    </section>
+
+    <!-- JavaScript popup -->
+    <section class="locator-section window-section">
+      <h2>Open Popup Window</h2>
+      <button class="btn-open" onclick="openPopup()">Open Popup Window</button>
+      <p>This button opens a new window using <code>window.open()</code>.</p>
+    </section>
+  </div>
+
+  <script>
+    function openPopup() {
+      const popup = window.open("", "popupWindow", "width=400,height=300");
+      popup.document.write(`
+        <html>
+        <head>
+          <title>Popup Window</title>
+        </head>
+        <body class="popup-content">
+          <h2>👋 This is a popup window!</h2>
+          <p>You can switch to me using window handles.</p>
+        </body>
+        </html>
+      `);
+    }
+  </script>
+</body>
+</html>

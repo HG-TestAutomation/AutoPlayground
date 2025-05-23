@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>findElement(s) - AutoPlayground</title>
+ <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .list-item {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-clear {
+      margin-top: 10px;
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-clear:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>findElement() vs findElements()</h1>
+
+    <section class="locator-section">
+      <h2>Item List</h2>
+      <p>Use <code>findElement(By.className("list-item"))</code> to get the <strong>first</strong> element.<br>
+         Use <code>findElements(By.className("list-item"))</code> to get <strong>all</strong> elements.</p>
+
+      <div class="item-list" id="itemList">
+        <div class="list-item">Item 1</div>
+        <div class="list-item">Item 2</div>
+        <div class="list-item">Item 3</div>
+      </div>
+
+      <button class="btn-clear" onclick="clearList()">Remove All Items</button>
+    </section>
+  </div>
+
+  <script>
+    function clearList() {
+      const list = document.getElementById("itemList");
+      list.innerHTML = "";
+    }
+  </script>
+</body>
+</html>

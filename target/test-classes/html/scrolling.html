@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scrolling - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .spacer {
+      height: 1000px;
+      background: linear-gradient(#fff, #eee);
+      margin-bottom: 20px;
+    }
+
+    .scroll-target {
+      background-color: #e0f7fa;
+      padding: 20px;
+      border-radius: 4px;
+      border: 1px solid #4CAF50;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .scroll-box {
+      border: 1px solid #ccc;
+      height: 150px;
+      width: 100%;
+      max-width: 500px;
+      overflow-y: scroll;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #fafafa;
+    }
+
+    .scroll-box .scroll-item {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .scroll-button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .scroll-button:hover {
+      background-color: #388E3C;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Scrolling Practice</h1>
+
+    <!-- Scroll to target -->
+    <section class="locator-section">
+      <h2>Scroll to Element (Off-Screen)</h2>
+      <p>Use Selenium or Playwright to scroll to the box below using <code>scrollIntoView()</code>.</p>
+      <div class="spacer"></div>
+      <div id="scrollTarget" class="scroll-target">🎯 You found the hidden scroll target!</div>
+    </section>
+
+    <!-- Scroll inside container -->
+    <section class="locator-section">
+      <h2>Scrollable Box (Overflow Scroll)</h2>
+      <p>Use JavaScript or keyboard/mouse actions to scroll inside this div.</p>
+      <div class="scroll-box" id="scrollBox">
+        <div class="scroll-item">Item 1</div>
+        <div class="scroll-item">Item 2</div>
+        <div class="scroll-item">Item 3</div>
+        <div class="scroll-item">Item 4</div>
+        <div class="scroll-item">Item 5</div>
+        <div class="scroll-item">Item 6</div>
+        <div class="scroll-item">Item 7</div>
+        <div class="scroll-item">Item 8</div>
+        <div class="scroll-item">Item 9</div>
+        <div class="scroll-item">Item 10</div>
+      </div>
+    </section>
+
+    <!-- Scroll to bottom -->
+    <section class="locator-section">
+      <h2>Scroll to Bottom of Page</h2>
+      <button class="scroll-button" onclick="scrollToBottom()">Scroll to Bottom</button>
+    </section>
+  </div>
+
+  <script>
+    function scrollToBottom() {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>

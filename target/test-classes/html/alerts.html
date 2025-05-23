@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alerts - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .btn-alert {
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #f39c12;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-alert:hover {
+      background-color: #e67e22;
+    }
+
+    #promptResult {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Alerts Practice</h1>
+
+    <!-- Simple Alert -->
+    <section class="locator-section">
+      <h2>Simple Alert</h2>
+      <button class="btn-alert" id="simpleAlertBtn" onclick="showSimpleAlert()">Show Alert</button>
+    </section>
+
+    <!-- Confirm Alert -->
+    <section class="locator-section">
+      <h2>Confirmation Alert</h2>
+      <button class="btn-alert" id="confirmAlertBtn" onclick="showConfirmAlert()">Show Confirm</button>
+    </section>
+
+    <!-- Prompt Alert -->
+    <section class="locator-section">
+      <h2>Prompt Alert</h2>
+      <button class="btn-alert" id="promptAlertBtn" onclick="showPromptAlert()">Show Prompt</button>
+      <p id="promptResult"></p>
+    </section>
+  </div>
+
+  <script>
+    function showSimpleAlert() {
+      alert("This is a simple alert box.");
+    }
+
+    function showConfirmAlert() {
+      const result = confirm("Do you want to continue?");
+      if (result) {
+        alert("You clicked OK.");
+      } else {
+        alert("You clicked Cancel.");
+      }
+    }
+
+    function showPromptAlert() {
+      const name = prompt("Enter your name:");
+      const display = document.getElementById("promptResult");
+      if (name) {
+        display.textContent = `Hello, ${name}!`;
+      } else {
+        display.textContent = "Prompt was cancelled or left empty.";
+      }
+    }
+  </script>
+</body>
+</html>

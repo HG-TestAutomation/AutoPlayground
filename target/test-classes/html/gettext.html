@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Text & Attribute - AutoPlayground</title>
+ <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .highlight {
+      background-color: #e8f5e9;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .form-control {
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Get Text & Get Attribute</h1>
+
+    <!-- Get Text Example -->
+    <section class="locator-section">
+      <h2>Get Text Example</h2>
+      <div id="textDiv" class="highlight">✅ Welcome to AutoPlayground!</div>
+      <p>Use <code>getText()</code> or <code>.textContent</code> to fetch this message.</p>
+    </section>
+
+    <!-- Get Attribute Example -->
+    <section class="locator-section">
+      <h2>Get Attribute Example</h2>
+      <label for="emailField">Email:</label>
+      <input type="email" id="emailField" name="email" placeholder="Enter your email" class="form-control" />
+      <p class="note">Use <code>getAttribute("placeholder")</code> or <code>getAttribute("type")</code></p>
+    </section>
+
+    <!-- Button with value attribute -->
+    <section class="locator-section">
+      <h2>Button Value Attribute</h2>
+      <input type="submit" id="submitBtn" value="Submit Form" />
+      <p class="note">Use <code>getAttribute("value")</code> to get button text from input elements.</p>
+    </section>
+  </div>
+</body>
+</html>

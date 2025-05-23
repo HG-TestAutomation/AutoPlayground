@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iframes - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .iframe-label {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Iframe Practice</h1>
+
+    <!-- Standard iframe with basic content -->
+    <section class="locator-section">
+      <div class="iframe-label">Iframe with Form (iframeForm)</div>
+      <iframe id="iframeForm" name="iframeForm" srcdoc='
+        <!DOCTYPE html>
+        <html>
+        <body style="font-family: Arial;">
+          <h3>Inside Iframe Form</h3>
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter email" />
+          <br/><br/>
+          <button id="submitBtn">Submit</button>
+        </body>
+        </html>
+      '></iframe>
+    </section>
+
+    <!-- Second iframe with different content -->
+    <section class="locator-section">
+      <div class="iframe-label">Iframe with Message (iframeMessage)</div>
+      <iframe id="iframeMessage" name="iframeMessage" srcdoc='
+        <!DOCTYPE html>
+        <html>
+        <body style="font-family: Arial;">
+          <p id="msg">🚀 You switched into the second iframe!</p>
+        </body>
+        </html>
+      '></iframe>
+    </section>
+
+    <!-- Optional: Embed real 3rd-party iframe (non-interactive) -->
+    <section class="locator-section">
+      <div class="iframe-label">YouTube Embedded (Non-Automatable)</div>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video"
+              allowfullscreen>
+      </iframe>
+      <p class="note">Note: Interacting with cross-origin iframes (like YouTube) is limited by browser security rules.</p>
+    </section>
+  </div>
+</body>
+</html>

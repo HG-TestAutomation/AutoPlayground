@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File Upload - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .upload-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .file-display {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .hidden-file {
+      display: none;
+    }
+
+    .drag-drop {
+      border: 2px dashed #aaa;
+      padding: 30px;
+      text-align: center;
+      color: #555;
+      cursor: pointer;
+      background-color: #fafafa;
+      border-radius: 6px;
+    }
+
+    .drag-drop.hovered {
+      background-color: #e8f5e9;
+      border-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>File Upload Testing</h1>
+
+    <div class="upload-container">
+
+      <!-- Standard File Input -->
+      <section class="locator-section">
+        <h2>Standard File Input</h2>
+        <input type="file" id="standardUpload" class="form-control" />
+        <p class="file-display" id="standardFileName"></p>
+      </section>
+
+      <!-- Hidden File Input triggered by button -->
+      <section class="locator-section">
+        <h2>Hidden File Upload (Custom Button)</h2>
+        <button class="btn-primary" onclick="document.getElementById('hiddenUpload').click()">Upload File</button>
+        <input type="file" id="hiddenUpload" class="hidden-file" />
+        <p class="file-display" id="hiddenFileName"></p>
+      </section>
+
+      <!-- Drag and Drop Upload -->
+      <section class="locator-section">
+        <h2>Drag & Drop Upload Zone</h2>
+        <div id="dropZone" class="drag-drop">
+          Drag & drop a file here
+        </div>
+        <p class="file-display" id="dropFileName"></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    // Display selected file name for standard input
+    document.getElementById('standardUpload').addEventListener('change', function () {
+      const file = this.files[0];
+      document.getElementById('standardFileName').textContent = file ? `Selected: ${file.name}` : '';
+    });
+
+    // Display selected file name for hidden input
+    document.getElementById('hiddenUpload').addEventListener('change', function () {
+      const file = this.files[0];
+      document.getElementById('hiddenFileName').textContent = file ? `Selected: ${file.name}` : '';
+    });
+
+    // Drag & Drop logic
+    const dropZone = document.getElementById("dropZone");
+    const dropFileName = document.getElementById("dropFileName");
+
+    dropZone.addEventListener("dragover", function (e) {
+      e.preventDefault();
+      dropZone.classList.add("hovered");
+    });
+
+    dropZone.addEventListener("dragleave", function () {
+      dropZone.classList.remove("hovered");
+    });
+
+    dropZone.addEventListener("drop", function (e) {
+      e.preventDefault();
+      dropZone.classList.remove("hovered");
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        dropFileName.textContent = `Dropped: ${files[0].name}`;
+      }
+    });
+  </script>
+</body>
+</html>

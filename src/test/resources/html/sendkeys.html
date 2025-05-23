@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Send Keys - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .form-control {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Send Keys Practice</h1>
+
+    <!-- Text Input -->
+    <section class="locator-section form-section">
+      <h2>Basic Text Input</h2>
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" class="form-control" placeholder="Enter username" />
+      <p class="note">Use <code>sendKeys()</code> to type into this field.</p>
+    </section>
+
+    <!-- Append vs Clear -->
+    <section class="locator-section form-section">
+      <h2>Append vs Clear</h2>
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" class="form-control" value="user@example.com" />
+      <p class="note">Try typing without clearing and compare to using <code>.clear()</code> first.</p>
+    </section>
+
+    <!-- Disabled Input -->
+    <section class="locator-section form-section">
+      <h2>Disabled Input</h2>
+      <label for="disabledField">This field is disabled:</label><br />
+      <input type="text" id="disabledField" class="form-control" value="Can't edit me" disabled />
+      <p class="note">Use <code>.isEnabled()</code> or try typing to confirm it's blocked.</p>
+    </section>
+
+    <!-- Textarea -->
+    <section class="locator-section form-section">
+      <h2>Textarea (Multiline Input)</h2>
+      <label for="comments">Comments:</label><br />
+      <textarea id="comments" class="form-control" rows="4" placeholder="Enter your comments here..."></textarea>
+      <p class="note">Use <code>sendKeys()</code> to simulate long-form input.</p>
+    </section>
+
+    <!-- Input with ENTER key -->
+    <section class="locator-section form-section">
+      <h2>Submit on ENTER</h2>
+      <form id="searchForm">
+        <label for="search">Search Field:</label><br />
+        <input type="text" id="search" name="search" class="form-control" placeholder="Type and press ENTER" />
+        <p class="note">Trigger form submit using <code>sendKeys(Keys.ENTER)</code>.</p>
+        <p id="searchResult" class="note"></p>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const searchForm = document.getElementById("searchForm");
+    const searchResult = document.getElementById("searchResult");
+
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const searchValue = document.getElementById("search").value;
+      searchResult.textContent = `Search submitted for: ${searchValue}`;
+    });
+  </script>
+</body>
+</html>

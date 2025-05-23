@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enter Key - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .form-control {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Enter Key Handling</h1>
+
+    <!-- Standard form that triggers on Enter -->
+    <section class="locator-section">
+      <h2>Submit on Enter (Form)</h2>
+      <form id="searchForm">
+        <label for="searchInput">Search:</label>
+        <input
+          type="text"
+          id="searchInput"
+          name="search"
+          placeholder="Type and press Enter"
+          class="form-control"
+        />
+        <p class="result" id="formResult"></p>
+      </form>
+    </section>
+
+    <!-- JS-only Enter key capture -->
+    <section class="locator-section">
+      <h2>Custom JS Enter Capture</h2>
+      <label for="customInput">Press Enter inside this input:</label>
+      <input
+        type="text"
+        id="customInput"
+        placeholder="Custom handler input"
+        class="form-control"
+      />
+      <p class="result" id="customResult"></p>
+    </section>
+  </div>
+
+  <script>
+    // Native form submit handling
+    const searchForm = document.getElementById("searchForm");
+    const formResult = document.getElementById("formResult");
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const inputValue = document.getElementById("searchInput").value;
+      formResult.textContent = `Form submitted with: ${inputValue}`;
+    });
+
+    // Custom Enter key detection
+    const customInput = document.getElementById("customInput");
+    const customResult = document.getElementById("customResult");
+    customInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        customResult.textContent = `Enter key pressed! Value: ${customInput.value}`;
+      }
+    });
+  </script>
+</body>
+</html>

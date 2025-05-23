@@ -1,0 +1,220 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.nav-menu {
+    float: right;
+    list-style: none;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu a.active {
+    color: #4CAF50;
+}
+
+/* Forms */
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Drag and Drop */
+.drag-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.draggable {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: move;
+}
+
+.droppable {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Locator Practice Sections */
+.locator-section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    margin-top: 10px;
+    min-height: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Radio and Checkbox Groups */
+.radio-group, .checkbox-group {
+    margin: 10px 0;
+}
+
+.radio-group label, .checkbox-group label {
+    margin-right: 20px;
+}
+
+/* Tab Navigation Grid */
+.tab-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tab-button {
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    flex: 1 1 250px;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.tab-button:hover {
+    background-color: #4CAF50;
+}
+
+/* For drag and drop zones */
+.drag-drop {
+  border: 2px dashed #aaa;
+  padding: 30px;
+  text-align: center;
+  background-color: #fafafa;
+  border-radius: 6px;
+  color: #555;
+  cursor: pointer;
+}
+.drag-drop.hovered {
+  background-color: #e8f5e9;
+  border-color: #4CAF50;
+}
+
+/* For file name display */
+.file-display, .result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+

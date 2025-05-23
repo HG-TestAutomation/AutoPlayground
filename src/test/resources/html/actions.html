@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Actions Class - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .action-box, .drop-target {
+      width: 150px;
+      height: 150px;
+      border: 2px dashed #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px;
+      background-color: #fefefe;
+    }
+
+    .draggable {
+      width: 100px;
+      height: 100px;
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    .drop-target.hovered {
+      background-color: #d1ffd1;
+      border-color: #4CAF50;
+    }
+
+    .clickable-area {
+      padding: 20px;
+      background-color: #eee;
+      margin: 10px 0;
+      border: 2px solid #999;
+      cursor: pointer;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Actions Class Practice</h1>
+
+    <!-- Hover -->
+    <section class="locator-section">
+      <h2>Hover</h2>
+      <div class="clickable-area" id="hoverBox">Hover over me</div>
+    </section>
+
+    <!-- Double Click -->
+    <section class="locator-section">
+      <h2>Double Click</h2>
+      <div class="clickable-area" id="doubleClickBox">Double-click me</div>
+    </section>
+
+    <!-- Click and Hold -->
+    <section class="locator-section">
+      <h2>Click and Hold</h2>
+      <div class="clickable-area" id="holdBox">Click and hold me</div>
+    </section>
+
+    <!-- Right Click -->
+    <section class="locator-section">
+      <h2>Right Click (Context Menu)</h2>
+      <div class="clickable-area" id="rightClickBox">Right-click me</div>
+    </section>
+
+    <!-- Drag and Drop -->
+    <section class="locator-section">
+      <h2>Drag and Drop</h2>
+      <div style="display: flex;">
+        <div class="draggable" id="dragBox" draggable="true">Drag me</div>
+        <div class="drop-target" id="dropZone">Drop here</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Drag and Drop demo JS
+    const dragBox = document.getElementById("dragBox");
+    const dropZone = document.getElementById("dropZone");
+
+    dragBox.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", "dragBox");
+    });
+
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("hovered");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.classList.remove("hovered");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text/plain");
+      if (id === "dragBox") {
+        dropZone.innerText = "Dropped!";
+        dropZone.classList.remove("hovered");
+        dropZone.style.backgroundColor = "#c8e6c9";
+      }
+    });
+  </script>
+</body>
+</html>

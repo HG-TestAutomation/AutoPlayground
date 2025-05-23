@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waits - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .wait-section {
+      margin-bottom: 40px;
+    }
+
+    .wait-box {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border: 1px solid #4CAF50;
+      border-radius: 4px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .btn-trigger {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-trigger:hover {
+      background-color: #388E3C;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #4CAF50;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Waits Practice</h1>
+
+    <!-- Explicit wait -->
+    <section class="locator-section wait-section">
+      <h2>Explicit Wait (Element appears after delay)</h2>
+      <button class="btn-trigger" onclick="showWithDelay()">Show Element After 5 Seconds</button>
+      <div id="spinner1" class="loader"></div>
+      <div id="delayedBox" class="wait-box">✅ I appeared after a delay!</div>
+    </section>
+
+    <!-- Fluent wait / retry polling -->
+    <section class="locator-section wait-section">
+      <h2>Fluent Wait (Poll for element that appears randomly)</h2>
+      <button class="btn-trigger" onclick="randomReveal()">Randomly Appear (1–4 sec)</button>
+      <div id="spinner2" class="loader"></div>
+      <div id="randomBox" class="wait-box">🎯 I appeared randomly!</div>
+    </section>
+
+    <!-- Hidden until interaction -->
+    <section class="locator-section wait-section">
+      <h2>Hidden Until Clicked</h2>
+      <p>Use waits to verify when this element becomes visible.</p>
+      <button class="btn-trigger" onclick="document.getElementById('clickBox').style.display='block'">Reveal Now</button>
+      <div id="clickBox" class="wait-box">🕒 I'm now visible after click.</div>
+    </section>
+  </div>
+
+  <script>
+    function showWithDelay() {
+      const box = document.getElementById("delayedBox");
+      const spinner = document.getElementById("spinner1");
+
+      box.style.display = "none";
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+        box.style.display = "block";
+      }, 5000);
+    }
+
+    function randomReveal() {
+      const box = document.getElementById("randomBox");
+      const spinner = document.getElementById("spinner2");
+
+      const delay = Math.floor(Math.random() * 4000) + 1000; // 1 to 5 seconds
+
+      box.style.display = "none";
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+        box.style.display = "block";
+      }, delay);
+    }
+  </script>
+</body>
+</html>

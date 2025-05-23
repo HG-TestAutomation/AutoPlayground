@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locators Practice - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="locators.html" class="active">Locators</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Locator Strategies</h1>
+
+    <!-- ID Locator -->
+    <section class="locator-section">
+      <h2>ID Locators</h2>
+      <button id="uniqueButton">Button with ID</button>
+      <input type="text" id="uniqueInput" placeholder="Input with ID" class="form-control" />
+    </section>
+
+    <!-- Name Locator -->
+    <section class="locator-section">
+      <h2>Name Locators</h2>
+      <input type="text" name="username" placeholder="Input with name" class="form-control" />
+    </section>
+
+    <!-- Class Name Locator -->
+    <section class="locator-section">
+      <h2>Class Locators</h2>
+      <div class="test-class">Element with class</div>
+      <div class="test-class special">Multi-Class Element</div>
+    </section>
+
+    <!-- Link Text & Partial Link Text -->
+    <section class="locator-section">
+      <h2>Link Text Locators</h2>
+      <a href="#" id="fullLink">Click Me - Full Link Text</a><br />
+      <a href="#" id="partialLink">Click for Partial</a>
+    </section>
+
+    <!-- CSS Selectors -->
+    <section class="locator-section">
+      <h2>CSS Selector Practice</h2>
+      <div class="parent">
+        <div class="child">First Child</div>
+        <div class="child">Second Child</div>
+      </div>
+    </section>
+
+    <!-- XPath Practice -->
+    <section class="locator-section">
+      <h2>XPath Practice</h2>
+      <p id="xpathTarget">XPath target element</p>
+      <table>
+        <tr><td>Row 1</td></tr>
+        <tr><td>Row 2</td></tr>
+      </table>
+      <div class="deep-nest">
+        <ul>
+          <li><span><b class="xpath-deep">Deep Nested Text</b></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Advanced XPath and CSS -->
+    <section class="locator-section">
+      <h2>Advanced XPath & CSS</h2>
+      <label for="expDate">Expiration Date</label>
+      <input type="text" id="expDate" placeholder="MM/DD/YYYY" class="form-control" />
+      <img src="https://via.placeholder.com/20" alt="Calendar Icon" />
+      <input type="password" name="passField1" placeholder="Password" class="form-control" />
+    </section>
+  </div>
+
+  <script src="../../../../js/main.js"></script>
+</body>
+</html>

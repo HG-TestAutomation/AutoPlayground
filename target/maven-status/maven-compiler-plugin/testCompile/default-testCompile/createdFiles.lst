@@ -1,0 +1,8 @@
+com\automation\runners\TestRunnerTest.class
+com\automation\pages\BasePage.class
+com\automation\base\ApplicationHooks.class
+com\automation\pages\LoginPage.class
+com\automation\utils\DriverManager.class
+com\automation\base\DriverFactory.class
+com\automation\stepdefinitions\LoginStepDefs.class
+com\automation\stepdefinitions\Hooks.class

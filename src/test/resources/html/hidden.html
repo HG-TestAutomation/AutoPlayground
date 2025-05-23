@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hidden Elements - AutoPlayground</title>
+  <link rel="stylesheet" href="../../../../css/style.css"/>
+  <style>
+    .hidden-display {
+      display: none;
+    }
+
+    .hidden-visibility {
+      visibility: hidden;
+    }
+
+    .hidden-input {
+      display: none;
+    }
+
+    .reveal-box {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0f7fa;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .btn-reveal {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-reveal:hover {
+      background-color: #388E3C;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">AutoPlayground</div>
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="login.html" id="logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Hidden Elements & Links</h1>
+
+    <!-- Display: none -->
+    <section class="locator-section">
+      <h2>Display: none</h2>
+      <div id="hiddenDiv1" class="hidden-display">This is hidden via display: none</div>
+    </section>
+
+    <!-- Visibility: hidden -->
+    <section class="locator-section">
+      <h2>Visibility: hidden</h2>
+      <div id="hiddenDiv2" class="hidden-visibility">This is hidden via visibility: hidden</div>
+    </section>
+
+    <!-- Hidden input field -->
+    <section class="locator-section">
+      <h2>Hidden Input Field</h2>
+      <input type="hidden" id="token" value="abc123" />
+      <p>Use <code>getAttribute("value")</code> to access the hidden token.</p>
+    </section>
+
+    <!-- Hidden link -->
+    <section class="locator-section">
+      <h2>Hidden Link</h2>
+      <a href="https://example.com/secret" id="hiddenLink" style="display: none;">Secret Page</a>
+      <p>The link exists in the DOM but is hidden from the UI.</p>
+    </section>
+
+    <!-- Reveal element with JS -->
+    <section class="locator-section">
+      <h2>Reveal with JavaScript</h2>
+      <button class="btn-reveal" onclick="document.getElementById('revealBox').style.display='block'">
+        Show Hidden Box
+      </button>
+      <div id="revealBox" class="reveal-box">🎉 You revealed this hidden element!</div>
+    </section>
+  </div>
+</body>
+</html>
